@@ -1,40 +1,37 @@
-<div align="center">
+# 💼 Raunak Kumar Jha - Portfolio Website
 
-# 💼 Abhijeet's Portfolio Website
+A modern, responsive personal portfolio website showcasing my work as a Full Stack Developer with expertise in backend development and DevOps. Built with HTML, CSS, JavaScript, and featuring stunning particle effects and animations.
 
-</div>
-
-A modern, responsive personal portfolio website showcasing my work as a full-stack web developer. Built with HTML, CSS, JavaScript, Bootstrap, GSAP, and integrated with a stunning animated particle background.
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-1DCD9F)](https://imraunak.dev)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
 ## 🚀 Features
 
 ### ✨ **Core Features**
-- Responsive design for all screen sizes  
-- Interactive hamburger menu for mobile view  
-- Hero section with animated name using GSAP  
-- Snowfall particle background using [particles.js](http://vincentgarreau.com/particles.js/#snow)  
-- Stylish "View Projects" button with neon glow effect  
-- Smooth scroll and clean layout  
-- Custom cursor implementation
-- Animated download button for resume
+- **Fully Responsive** - Optimized for all devices and screen sizes
+- **Interactive Animations** - Smooth GSAP animations and scroll effects
+- **Particle Backgrounds** - Constellation effects in multiple sections
+- **Matrix Rain Effect** - Animated matrix rain in tech stack section
+- **Custom Cursor** - Unique cursor implementation
+- **Animated Name Effect** - Hover effect on hero name
+- **Smooth Scrolling** - Enhanced user experience with smooth navigation
 
 ### 📧 **Contact Form**
 - Functional contact form with Formspree integration
-- Form validation and user feedback
-- Loading states and success/error messages
-- Professional styling with hover effects
-- Contact information display with icons
+- Real-time form validation with gibberish detection
+- Professional error and success messaging
+- Loading states and user feedback
+- Email fallback option
 
 ### ⚡ **Performance Optimizations**
+- Optimized particle systems for smooth performance
 - Lazy loading for images
 - Reduced motion support for accessibility
-- Optimized animations with `will-change` and `contain`
 - Service Worker for offline functionality
-- PWA (Progressive Web App) support
 - Critical CSS optimization
-- Font loading optimization
+- Efficient animation rendering
 
 ### 🐙 **GitHub Integration**
 - Live GitHub statistics (repos, stars, followers, commits)
@@ -44,55 +41,58 @@ A modern, responsive personal portfolio website showcasing my work as a full-sta
 - Fallback data for offline viewing
 
 ### 🎨 **Enhanced UI/UX**
-- Dark theme with custom color scheme
+- Dark theme with green (#1DCD9F) accent colors
 - Smooth animations and transitions
-- Interactive elements with hover effects
-- Accessibility improvements
-- Print-friendly styles
+- Interactive journey timeline
+- Professional footer with social links
+- Certifications showcase
+- Project portfolio with tech stack badges
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5** – Semantic markup with accessibility features
-- **CSS3** – Custom styling + Bootstrap 5 + Tailwind CSS
-- **JavaScript** – Core interactivity, animations, and API integrations
-- **GSAP** – Advanced animations and scroll triggers
-- **Particles.js** – Interactive particle backgrounds
-- **Formspree** – Contact form backend
-- **GitHub API** – Live coding activity integration
-- **Service Worker** – Offline functionality and caching
+- **HTML5** - Semantic markup with accessibility features
+- **CSS3** - Custom styling with Bootstrap 5 + Tailwind CSS
+- **JavaScript** - Core interactivity and animations
+- **GSAP** - Advanced animations and scroll triggers  
+- **Particles.js** - Interactive constellation backgrounds
+- **Formspree** - Contact form backend
+- **GitHub API** - Live coding activity integration
+- **Font Awesome** - Icon library
+- **Google Fonts** - Special Gothic Expanded One typography
 
 ---
 
-## 📱 PWA Features
+## 📸 Sections
 
-- **Installable** – Can be installed as a native app
-- **Offline Support** – Works without internet connection
-- **Fast Loading** – Optimized caching and performance
-- **App-like Experience** – Full-screen mode and native feel
-
----
-
-## 📸 Live Preview
-
-👉 [Live Demo](https://abhijeetbhale.github.io/Portfolio/)
-
-## 📸 Screenshot
-
-![Portfolio Website](https://github.com/abhijeetBhale/Portfolio/blob/4153aac777d27ad5cc2aaa4ded9a3b347b8c8d9e/assets/portfolio-ss.png)
+- **Hero** - Animated introduction with particle background
+- **About** - Personal bio and social links with constellation effect
+- **Journey** - Timeline of education and experience with particles
+- **Tech Stack** - Skills and technologies with matrix rain effect
+- **GitHub Activity** - Live GitHub statistics and recent activity
+- **Projects** - Portfolio showcase with live demos and source code
+- **Certifications** - Professional certifications display
+- **Contact** - Get in touch section with constellation background
+- **Footer** - Links and information with particle effects
 
 ---
 
 ## 🚀 Getting Started
 
+### Prerequisites
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Local server (optional, for development)
+
+### Installation
+
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/abhijeetBhale/Portfolio.git
-   cd Portfolio
+   git clone https://github.com/raunak0400/portfolio.git
+   cd portfolio/Portfolio
    ```
 
-2. **Open in browser**
+2. **Run locally**
    ```bash
    # Using Python
    python -m http.server 8000
@@ -107,7 +107,8 @@ A modern, responsive personal portfolio website showcasing my work as a full-sta
    - Update personal information in `index.html`
    - Modify colors in `styles.css`
    - Add your own projects and content
-   - Update GitHub username in `script.js`
+   - Update GitHub username in `script.js` (line 626)
+   - Update Formspree endpoint in `script.js` (line 501)
 
 ---
 
@@ -115,13 +116,20 @@ A modern, responsive personal portfolio website showcasing my work as a full-sta
 
 ```
 Portfolio/
-├── index.html          # Main HTML file
-├── styles.css          # Custom styles and animations
-├── script.js           # JavaScript functionality
-├── manifest.json       # PWA manifest
-├── sw.js              # Service Worker
-├── assets/            # Images and media files
-└── README.md          # Project documentation
+├── index.html              # Main HTML file
+├── styles.css              # Custom styles and animations
+├── script.js               # Core JavaScript functionality
+├── additional-effects.js   # Particle and matrix rain effects
+├── manifest.json          # PWA manifest
+├── sw.js                  # Service Worker
+├── assets/                # Images and media files
+│   ├── LOGO.png
+│   ├── cursor.png
+│   └── [project images]
+├── README.md              # Project documentation
+├── LICENSE                # MIT License
+├── CONTRIBUTING.md        # Contribution guidelines
+└── SECURITY.md            # Security policy
 ```
 
 ---
@@ -140,33 +148,86 @@ Update your GitHub username in `script.js`:
 const username = 'YOUR_GITHUB_USERNAME';
 ```
 
+### Email
+Update email addresses in:
+- `index.html` - Fixed email link and contact section
+- `script.js` - Contact form mailto fallback
+
+---
+
+## 🌐 Deployment
+
+This portfolio can be deployed on:
+
+- **Vercel** - Recommended (Zero config, automatic deployments)
+- **Netlify** - Drag-and-drop deployment
+- **GitHub Pages** - Free hosting for GitHub repos
+- **Cloudflare Pages** - Fast global CDN
+
+### Deploy to Vercel
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+cd Portfolio
+vercel
+```
+
 ---
 
 ## 📈 Performance
 
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
+- **Optimized Particles** - Reduced count (30 particles) for smooth performance
+- **Efficient Animations** - Hardware-accelerated CSS animations
+- **Lazy Loading** - Images load on demand
+- **Minified Assets** - Compressed for faster loading
+- **CDN Delivery** - Fast content delivery
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions, issues, and feature requests are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+---
+
+## 🔒 Security
+
+Found a security issue? Please see [SECURITY.md](SECURITY.md) for reporting instructions.
 
 ---
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 📞 Contact
 
-- **Email**: abhijeetbhale7@gmail.com
-- **LinkedIn**: [Abhijeet Bhale](https://www.linkedin.com/in/abhijeetbhale7)
-- **GitHub**: [@abhijeetBhale](https://github.com/abhijeetBhale)
-- **Instagram**: [@isocyanideisgood](https://www.instagram.com/isocyanideisgood)
+- **Email**: [contact@imraunak.dev](mailto:contact@imraunak.dev)
+- **LinkedIn**: [Raunak Kumar Jha](https://www.linkedin.com/in/raunak0400)
+- **GitHub**: [@raunak0400](https://github.com/raunak0400)
+- **Instagram**: [@raunak.1812](https://www.instagram.com/raunak.1812)
+- **Twitter**: [@raunak0400](https://twitter.com/raunak0400)
+- **LeetCode**: [@raunak0400](https://leetcode.com/raunak0400)
 
+---
+
+## 🙏 Acknowledgments
+
+- [Particles.js](https://vincentgarreau.com/particles.js/) - Interactive particle backgrounds
+- [GSAP](https://greensock.com/gsap/) - Animation library
+- [Formspree](https://formspree.io/) - Form backend service
+- [Font Awesome](https://fontawesome.com/) - Icon library
+
+---
+
+<div align="center">
+
+**Made with ❤️ and ☕ by Raunak Kumar Jha**
+
+⭐ Star this repo if you found it helpful!
+
+</div>
