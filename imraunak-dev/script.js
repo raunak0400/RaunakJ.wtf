@@ -306,15 +306,30 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Contact Form Functionality
+// Contact Form Functionality — powered by EmailJS
 document.addEventListener('DOMContentLoaded', function () {
-  const contactForm = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const submitText = document.getElementById('submitText');
+
+  // ─── EmailJS configuration ─────────────────────────────────────────────────
+  // 1. Sign up at https://www.emailjs.com (free tier: 200 emails/month)
+  // 2. Create a Service (Gmail, Outlook, etc.) → copy the Service ID below
+  // 3. Create an Email Template and map these variables:
+  //      {{from_name}}  {{from_email}}  {{subject}}  {{message}}
+  //    Copy the Template ID below
+  // 4. Go to Account → API Keys → copy your Public Key below
+  const EMAILJS_PUBLIC_KEY  = 'UI09JXtXFWladzDdu';
+  const EMAILJS_SERVICE_ID  = 'service_f6yoey3';
+  const EMAILJS_TEMPLATE_ID = 'template_8uvm5uf';
+
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  // ────────────────────────────────────────────────────────────────────────────
+
+  const contactForm   = document.getElementById('contactForm');
+  const submitBtn     = document.getElementById('submitBtn');
+  const submitText    = document.getElementById('submitText');
   const submitLoading = document.getElementById('submitLoading');
-  const formMessage = document.getElementById('formMessage');
-  const messageText = document.getElementById('messageText');
-  const messageInput = document.getElementById('message');
+  const formMessage   = document.getElementById('formMessage');
+  const messageText   = document.getElementById('messageText');
+  const messageInput  = document.getElementById('message');
 
   // Gibberish detection functions
   function detectGibberish(text) {
@@ -322,8 +337,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Remove extra whitespace and normalize
     const cleanText = text.trim().replace(/\s+/g, ' ');
-
-
 
     // 1. Check minimum length
     if (cleanText.length < 10) {
@@ -481,56 +494,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!validation.isValid) {
         showMessage(`Please fix the following issues:<br>${validation.errors.join('<br>')}`, 'error');
-        // Reset button state
         submitBtn.disabled = false;
         submitText.classList.remove('hidden');
         submitLoading.classList.add('hidden');
         return;
       }
-      const data = {
-        firstName: formData.get('firstName'),
-        lastName: formData.get('lastName'),
-        email: formData.get('email'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
+
+      // Build the EmailJS template params
+      // These variable names must match the ones in your EmailJS template
+      const templateParams = {
+        from_name:  `${formData.get('firstName')} ${formData.get('lastName')}`,
+        from_email:  formData.get('email'),
+        subject:     formData.get('subject'),
+        message:     formData.get('message'),
       };
 
       try {
-        // Option 1: Using Formspree (you need to create your own endpoint)
-        // Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint
-        const response = await fetch('https://formspree.io/f/mjkrlgar', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          showMessage('Thank you! Your message has been sent successfully. I\'ll get back to you soon!', 'success');
-          contactForm.reset();
-        } else {
-          throw new Error('Failed to send message');
-        }
+        // Fire both emails in parallel:
+        // 1. Notify the owner  2. Auto-reply to the sender
+        await Promise.all([
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams),
+          emailjs.send(EMAILJS_SERVICE_ID, 'template_nk9yh4e',  templateParams),
+        ]);
+        showMessage("✅ Message sent successfully! I'll get back to you within 24 hours.", 'success');
+        contactForm.reset();
       } catch (error) {
-        console.error('Error:', error);
-
-        // Fallback: Send email directly (this will open user's email client)
-        const emailSubject = encodeURIComponent(`Portfolio Contact: ${data.subject}`);
-        const emailBody = encodeURIComponent(`
-Name: ${data.firstName} ${data.lastName}
-Email: ${data.email}
-Subject: ${data.subject}
-
-Message:
-${data.message}
-        `);
-
-        const mailtoLink = `mailto:abhijeetbhale7@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-        showMessage(`Form submission failed. <a href="${mailtoLink}" class="underline">Click here to send email directly</a> or try again later.`, 'error');
+        console.error('EmailJS error:', error);
+        showMessage('❌ Failed to send the message. Please try again or email me directly at contact@imraunak.dev', 'error');
       } finally {
-        // Reset button state
         submitBtn.disabled = false;
         submitText.classList.remove('hidden');
         submitLoading.classList.add('hidden');
@@ -549,6 +540,9 @@ ${data.message}
     }, 8000);
   }
 });
+
+
+
 
 // Performance Optimizations - Lazy Loading
 document.addEventListener('DOMContentLoaded', function () {
