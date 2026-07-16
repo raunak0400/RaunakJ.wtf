@@ -261,6 +261,51 @@ gsap.utils.toArray('.reveal-section').forEach(section => {
   });
 });
 
+// GitHub Activity stat cards
+gsap.utils.toArray('.github-stat-card').forEach((card, i) => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+      toggleActions: "play none none reset"
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    ease: "power3.out",
+    delay: i * 0.1,
+  });
+});
+
+// Contact section: info slides in from left, form slides in from right
+gsap.utils.toArray('.contact-info-fade').forEach((el) => {
+  gsap.from(el, {
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play none none reset"
+    },
+    opacity: 0,
+    x: -60,
+    duration: 1,
+    ease: "power3.out"
+  });
+});
+
+gsap.utils.toArray('.contact-form-fade').forEach((el) => {
+  gsap.from(el, {
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play none none reset"
+    },
+    opacity: 0,
+    x: 60,
+    duration: 1,
+    ease: "power3.out"
+  });
+});
+
 // Up coming projects
 
 gsap.utils.toArray(".upcoming-card").forEach((card, i) => {
