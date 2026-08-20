@@ -43,6 +43,8 @@ export function Footer() {
             <LinkPill href={profile.socials.github}>GitHub</LinkPill>
             <LinkPill href={profile.socials.linkedin}>LinkedIn</LinkPill>
             <LinkPill href={profile.socials.twitter}>Twitter</LinkPill>
+            <LinkPill href={profile.socials.leetcode}>LeetCode</LinkPill>
+            <LinkPill href={profile.socials.instagram}>Instagram</LinkPill>
           </div>
         </div>
 

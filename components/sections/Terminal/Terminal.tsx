@@ -68,6 +68,8 @@ function runCommand(raw: string): { lines: string[]; clear?: boolean } {
           `GitHub    ${profile.socials.github}`,
           `LinkedIn  ${profile.socials.linkedin}`,
           `Twitter   ${profile.socials.twitter}`,
+          `LeetCode  ${profile.socials.leetcode}`,
+          `Instagram ${profile.socials.instagram}`,
         ],
       };
     case "experience":

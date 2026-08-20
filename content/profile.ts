@@ -1,29 +1,34 @@
 /**
- * PLACEHOLDER CONTENT.
+ * SITE CONTENT.
  *
- * Every value in this file is a placeholder. This is the single source of
- * truth for copy on the site — replace the values here and the whole site
- * updates. Nothing below is real.
+ * Single source of truth for copy on the site — edit the values here and the
+ * whole site updates.
+ *
+ * NOTE: `projects` below is still placeholder — swap in real case studies
+ * (problem/solution/challenges/stack/metrics/links) before shipping.
  */
 
 export const profile = {
-  name: "Jordan Vance",
-  initials: "JV",
-  role: "Software Engineer",
-  focus: "Backend & Distributed Systems",
-  location: "Based in San Francisco, CA — Remote",
-  email: "hello@jordanvance.dev",
-  resumeUrl: "/resume.pdf",
+  name: "Raunak Kumar Jha",
+  initials: "RJ",
+  role: "Full Stack Developer (Backend-Centric)",
+  focus: "DevOps Engineer & Open Source Contributor",
+  location: "Gandhinagar, Gujarat, India",
+  email: "raunakkumarjha233@gmail.com",
+  bio: "Results-driven Full Stack Developer with expertise in building scalable web applications, backend systems, and cloud deployments. Proficient in frontend frameworks, API integration, and database management. Strong foundation in DevOps practices with hands-on experience in containerization and CI/CD pipelines.",
+  resumeUrl: "/CV.pdf",
   openToOpportunities: true,
   socials: {
-    github: "https://github.com/jordanvance",
-    linkedin: "https://linkedin.com/in/jordanvance",
-    twitter: "https://twitter.com/jordanvance",
+    github: "https://github.com/raunak0400",
+    linkedin: "https://linkedin.com/in/raunak0400",
+    twitter: "https://twitter.com/raunak0400",
+    leetcode: "https://leetcode.com/u/raunak0400/",
+    instagram: "https://instagram.com/raunak.1812",
   },
 };
 
 export const heroCopy = {
-  kicker: "BACKEND — DISTRIBUTED SYSTEMS — INFRASTRUCTURE",
+  kicker: "BACKEND — DEVOPS — OPEN SOURCE",
   headline: profile.name,
   subline: `${profile.role} — ${profile.focus}`,
   scrollCue: "Scroll",
@@ -31,9 +36,10 @@ export const heroCopy = {
 
 export const identityStatements = [
   "I BUILD BACKENDS.",
-  "I DESIGN SYSTEMS.",
-  "I SCALE INFRASTRUCTURE.",
-  "I SHIP RELIABILITY.",
+  "I DESIGN APIs.",
+  "I AUTOMATE INFRASTRUCTURE.",
+  "I SHIP TO THE CLOUD.",
+  "I CONTRIBUTE IN THE OPEN.",
 ];
 
 export interface TimelineStep {
@@ -43,28 +49,37 @@ export interface TimelineStep {
 }
 
 export const timelineSteps: TimelineStep[] = [
-  { label: "Student", year: "2016", detail: "Systems, algorithms, first lines of code" },
-  { label: "Developer", year: "2018", detail: "First production deploy, first outage" },
-  { label: "Backend Engineer", year: "2020", detail: "APIs, databases, service design" },
-  { label: "DevOps", year: "2021", detail: "CI/CD, containers, infrastructure as code" },
-  { label: "Distributed Systems", year: "2022", detail: "Queues, consistency, failure modes" },
-  { label: "Open Source", year: "2023", detail: "Public contributions, code review at scale" },
-  { label: "Building at Scale", year: "Now", detail: "Millions of requests, zero drama" },
+  { label: "High School", year: "2024", detail: "Om Landmark School — PCM, 88%" },
+  { label: "B.Tech Computer Science", year: "2024", detail: "Gandhinagar University, batch of 2028" },
+  {
+    label: "IIT Guwahati Micro-Credential",
+    year: "2025",
+    detail: "Micro-credit program in Computer Science & Engineering",
+  },
+  {
+    label: "SDE Intern — Backend",
+    year: "2025",
+    detail: "Tech Mahindra — REST APIs, Redis caching, query optimization",
+  },
+  {
+    label: "Software Dev Intern",
+    year: "2026",
+    detail: "Mangalam Information Technologies — backend & DevOps",
+  },
+  { label: "Open Source", year: "2026", detail: "Public contributions — backend & DevOps tooling" },
+  {
+    label: "Open to Opportunities",
+    year: "Now",
+    detail: "Backend-centric full stack, DevOps, exploring Web3",
+  },
 ];
 
-export type TechCategory =
-  | "language"
-  | "backend"
-  | "data"
-  | "infra"
-  | "cloud"
-  | "observability";
+export type TechCategory = "language" | "backend" | "data" | "infra" | "cloud";
 
-export interface TechNode {
-  id: string;
-  label: string;
+export interface TechGroup {
   category: TechCategory;
-  position: [number, number, number];
+  label: string;
+  items: string[];
 }
 
 export const techCategoryColor: Record<TechCategory, string> = {
@@ -73,45 +88,14 @@ export const techCategoryColor: Record<TechCategory, string> = {
   data: "#ff6a39",
   infra: "#0a84ff",
   cloud: "#f5f5f5",
-  observability: "#ff6a39",
 };
 
-export const techNodes: TechNode[] = [
-  { id: "typescript", label: "TypeScript", category: "language", position: [-3.2, 1.4, 0] },
-  { id: "go", label: "Go", category: "language", position: [-2.4, -1.3, 1.2] },
-  { id: "python", label: "Python", category: "language", position: [-3.6, -0.2, -1.4] },
-  { id: "node", label: "Node.js", category: "backend", position: [-1.1, 2.1, -0.6] },
-  { id: "express", label: "Express", category: "backend", position: [-0.4, 0.5, 1.7] },
-  { id: "fastapi", label: "FastAPI", category: "backend", position: [-1.8, -1.9, 0.3] },
-  { id: "postgres", label: "PostgreSQL", category: "data", position: [0.8, -2.1, 1] },
-  { id: "redis", label: "Redis", category: "data", position: [1.7, -0.6, -1.6] },
-  { id: "kafka", label: "Kafka", category: "data", position: [0.3, 1.9, -1.8] },
-  { id: "docker", label: "Docker", category: "infra", position: [2.4, 1.4, 0.8] },
-  { id: "kubernetes", label: "Kubernetes", category: "infra", position: [3.3, 0, -0.4] },
-  { id: "terraform", label: "Terraform", category: "infra", position: [2.8, -1.7, 1.2] },
-  { id: "aws", label: "AWS", category: "cloud", position: [3.9, 1.8, -1.2] },
-  { id: "grafana", label: "Grafana", category: "observability", position: [1.2, 2.7, 1] },
-  { id: "prometheus", label: "Prometheus", category: "observability", position: [0, 3.1, -0.2] },
-];
-
-export const techEdges: [string, string][] = [
-  ["typescript", "node"],
-  ["node", "express"],
-  ["python", "fastapi"],
-  ["express", "postgres"],
-  ["fastapi", "postgres"],
-  ["node", "redis"],
-  ["express", "kafka"],
-  ["kafka", "redis"],
-  ["node", "docker"],
-  ["fastapi", "docker"],
-  ["docker", "kubernetes"],
-  ["kubernetes", "terraform"],
-  ["kubernetes", "aws"],
-  ["terraform", "aws"],
-  ["kubernetes", "prometheus"],
-  ["prometheus", "grafana"],
-  ["go", "docker"],
+export const techStack: TechGroup[] = [
+  { category: "language", label: "Language", items: ["Python", "JavaScript"] },
+  { category: "backend", label: "Backend", items: ["Django REST", "Node.js", "Express"] },
+  { category: "data", label: "Data", items: ["PostgreSQL", "Redis"] },
+  { category: "infra", label: "Infra", items: ["Docker", "Kubernetes", "CI/CD"] },
+  { category: "cloud", label: "Cloud", items: ["AWS"] },
 ];
 
 export interface ProjectMetric {
@@ -134,6 +118,7 @@ export interface Project {
   accent: "blue" | "orange";
 }
 
+// PLACEHOLDER — replace with real case studies.
 export const projects: Project[] = [
   {
     id: "ledger",
@@ -156,7 +141,7 @@ export const projects: Project[] = [
       { label: "Uptime", value: "99.97%" },
     ],
     liveUrl: "https://ledger.example.com",
-    githubUrl: "https://github.com/jordanvance/ledger",
+    githubUrl: "https://github.com/raunak0400/ledger",
     accent: "blue",
   },
   {
@@ -180,7 +165,7 @@ export const projects: Project[] = [
       { label: "Traces / sec", value: "9.1K" },
     ],
     liveUrl: "https://meshline.example.com",
-    githubUrl: "https://github.com/jordanvance/meshline",
+    githubUrl: "https://github.com/raunak0400/meshline",
     accent: "orange",
   },
 ];
@@ -194,11 +179,11 @@ export interface GitCommit {
 
 export const gitCommits: GitCommit[] = [
   { id: "a1", message: "init: project scaffold", branch: "main" },
-  { id: "a2", message: "feat: add auth middleware", branch: "main" },
-  { id: "b1", message: "feat: rate limiter", branch: "feature" },
-  { id: "b2", message: "test: rate limiter edge cases", branch: "feature" },
-  { id: "b3", message: "fix: race condition in limiter", branch: "feature" },
-  { id: "a3", message: "merge: rate-limiter into main", branch: "main", merge: true },
+  { id: "a2", message: "feat: add JWT auth middleware", branch: "main" },
+  { id: "b1", message: "feat: redis caching layer", branch: "feature" },
+  { id: "b2", message: "test: cache invalidation edge cases", branch: "feature" },
+  { id: "b3", message: "fix: race condition in cache writer", branch: "feature" },
+  { id: "a3", message: "merge: redis-cache into main", branch: "main", merge: true },
   { id: "a4", message: "chore: bump dependencies", branch: "main" },
   { id: "a5", message: "perf: connection pooling", branch: "main" },
 ];
@@ -213,31 +198,35 @@ export interface Repo {
 
 export const repos: Repo[] = [
   {
-    name: "event-mesh",
-    description: "Lightweight event bus for service-to-service messaging",
-    stars: 842,
-    forks: 61,
-    language: "Go",
-  },
-  {
-    name: "pg-migrate-lite",
-    description: "Zero-dependency Postgres migration runner",
-    stars: 431,
-    forks: 28,
+    name: "Modern_Portfolio",
+    description:
+      "Modern, responsive personal portfolio built with Vite, React, TypeScript, and Framer Motion.",
+    stars: 13,
+    forks: 1,
     language: "TypeScript",
   },
   {
-    name: "rate-limiter-rs",
-    description: "Sliding-window rate limiter, Redis-backed",
-    stars: 276,
-    forks: 19,
-    language: "Rust",
+    name: "Flask-CXR",
+    description:
+      "Comment-driven code editor that converts comments into functional code and flags errors across languages.",
+    stars: 4,
+    forks: 0,
+    language: "Python",
   },
   {
-    name: "observability-kit",
-    description: "Drop-in Prometheus + Grafana starter for Node services",
-    stars: 198,
-    forks: 14,
+    name: "Good-Jobs-Backend",
+    description:
+      "Production-ready Express.js REST API serving job listings, accommodation data, and CV delivery via email.",
+    stars: 0,
+    forks: 0,
+    language: "JavaScript",
+  },
+  {
+    name: "Nullpoint-x-ITNU",
+    description:
+      "Aurora-Air — air quality intelligence system fusing NASA TEMPO satellite data with ground sensors. Built for NASA Space Apps Challenge.",
+    stars: 0,
+    forks: 1,
     language: "TypeScript",
   },
 ];
@@ -267,23 +256,23 @@ export const contributionWeeks: number[][] = Array.from({ length: 52 }, () =>
 
 export const terminalContent = {
   skills: [
-    "Languages      TypeScript, Go, Python",
-    "Backend        Node.js, Express, FastAPI",
-    "Data           PostgreSQL, Redis, Kafka",
-    "Infra          Docker, Kubernetes, Terraform",
+    "Languages      Python, JavaScript, TypeScript",
+    "Backend        Django REST Framework, Node.js, Express",
+    "Data           PostgreSQL, Redis",
+    "Infra          Docker, Kubernetes, CI/CD Pipelines",
     "Cloud          AWS",
-    "Observability  Grafana, Prometheus",
+    "Interests      Web3, Blockchain, Crypto",
   ],
   experience: [
-    "Building at Scale        Now    Distributed systems, platform reliability",
-    "Open Source Contributor  2023   Public repos, code review at scale",
-    "Distributed Systems      2022   Queues, consistency, failure modes",
-    "DevOps                   2021   CI/CD, containers, infrastructure as code",
-    "Backend Engineer         2020   APIs, databases, service design",
+    "Open to Opportunities        Now     Backend-centric full stack, DevOps, exploring Web3",
+    "Software Development Intern  2026    Mangalam Information Technologies — backend & DevOps",
+    "SDE Intern — Backend         2025    Tech Mahindra — Django REST APIs, Redis caching, query optimization",
+    "Open Source Contributor      2025    Public repos — dev tooling, backend & DevOps projects",
   ],
   education: [
-    "B.S. Computer Science — Systems & Algorithms track",
-    "Self-directed study — distributed systems, database internals",
+    "B.Tech Computer Science — Gandhinagar University (2024–2028)",
+    "Micro-Credential Program, CSE — IIT Guwahati",
+    "Higher Secondary (PCM) — Om Landmark School, 88%",
   ],
 };
 

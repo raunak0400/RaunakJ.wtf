@@ -24,8 +24,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.role}`,
-  description: `${profile.role}, ${profile.focus}. Building resilient, scalable infrastructure.`,
+  title: profile.name,
+  description: profile.bio,
 };
 
 export default function RootLayout({
