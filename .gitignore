@@ -22,7 +22,11 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
+*.swp
+*.swo
+.idea/
 
 # debug
 npm-debug.log*
@@ -42,3 +46,13 @@ next-env.d.ts
 
 # Added by code-review-graph
 .code-review-graph/
+
+# single-tool setup — only Claude Code (CLAUDE.md, .mcp.json) is used here;
+# ignore other AI-tool config files so they don't get re-tracked
+.cursorrules
+.windsurfrules
+AGENTS.md
+GEMINI.md
+QODER.md
+.qoder/
+.vscode/mcp.json

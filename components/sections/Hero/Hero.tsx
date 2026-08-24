@@ -104,7 +104,7 @@ export function Hero() {
 
         <p
           ref={sublineRef}
-          className="mt-8 max-w-md text-balance font-sans text-base text-ink-200 sm:text-lg"
+          className="mt-8 max-w-2xl text-balance font-sans text-base text-ink-200 sm:whitespace-nowrap sm:text-lg"
         >
           {heroCopy.subline}
         </p>
