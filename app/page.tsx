@@ -7,8 +7,12 @@ import { OpenSource } from "@/components/sections/OpenSource/OpenSource";
 import { Terminal } from "@/components/sections/Terminal/Terminal";
 import { Contact } from "@/components/sections/Contact/Contact";
 import { Footer } from "@/components/layout/Footer";
+import { profile, fallbackRepos } from "@/content/profile";
+import { getGithubRepos } from "@/lib/github";
 
-export default function Home() {
+export default async function Home() {
+  const repos = (await getGithubRepos(profile.githubUsername)) ?? fallbackRepos;
+
   return (
     <main className="relative">
       <Hero />
@@ -16,7 +20,7 @@ export default function Home() {
       <Timeline />
       <TechStack />
       <Projects />
-      <OpenSource />
+      <OpenSource repos={repos} />
       <Terminal />
       <Contact />
       <Footer />

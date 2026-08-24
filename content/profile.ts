@@ -11,13 +11,13 @@
 export const profile = {
   name: "Raunak Kumar Jha",
   initials: "RJ",
-  role: "Full Stack Developer (Backend-Centric)",
-  focus: "DevOps Engineer & Open Source Contributor",
+  tagline: "Backend Engineer | Distributed Systems | Open source contributor",
   location: "Gandhinagar, Gujarat, India",
   email: "raunakkumarjha233@gmail.com",
   bio: "Results-driven Full Stack Developer with expertise in building scalable web applications, backend systems, and cloud deployments. Proficient in frontend frameworks, API integration, and database management. Strong foundation in DevOps practices with hands-on experience in containerization and CI/CD pipelines.",
   resumeUrl: "/CV.pdf",
   openToOpportunities: true,
+  githubUsername: "raunak0400",
   socials: {
     github: "https://github.com/raunak0400",
     linkedin: "https://linkedin.com/in/raunak0400",
@@ -30,16 +30,16 @@ export const profile = {
 export const heroCopy = {
   kicker: "BACKEND — DEVOPS — OPEN SOURCE",
   headline: profile.name,
-  subline: `${profile.role} — ${profile.focus}`,
+  subline: profile.tagline,
   scrollCue: "Scroll",
 };
 
 export const identityStatements = [
   "I BUILD BACKENDS.",
-  "I DESIGN APIs.",
+  "I BEND APIs TO MY WILL.",
   "I AUTOMATE INFRASTRUCTURE.",
   "I SHIP TO THE CLOUD.",
-  "I CONTRIBUTE IN THE OPEN.",
+  "I CONTRIBUTE TO OPEN SOURCE.",
 ];
 
 export interface TimelineStep {
@@ -74,7 +74,7 @@ export const timelineSteps: TimelineStep[] = [
   },
 ];
 
-export type TechCategory = "language" | "backend" | "data" | "infra" | "cloud";
+export type TechCategory = "languages" | "backend" | "database" | "tools";
 
 export interface TechGroup {
   category: TechCategory;
@@ -83,19 +83,29 @@ export interface TechGroup {
 }
 
 export const techCategoryColor: Record<TechCategory, string> = {
-  language: "#f5f5f5",
+  languages: "#ff6a39",
   backend: "#0a84ff",
-  data: "#ff6a39",
-  infra: "#0a84ff",
-  cloud: "#f5f5f5",
+  database: "#ff6a39",
+  tools: "#0a84ff",
 };
 
 export const techStack: TechGroup[] = [
-  { category: "language", label: "Language", items: ["Python", "JavaScript"] },
-  { category: "backend", label: "Backend", items: ["Django REST", "Node.js", "Express"] },
-  { category: "data", label: "Data", items: ["PostgreSQL", "Redis"] },
-  { category: "infra", label: "Infra", items: ["Docker", "Kubernetes", "CI/CD"] },
-  { category: "cloud", label: "Cloud", items: ["AWS"] },
+  {
+    category: "languages",
+    label: "Languages",
+    items: ["Python", "Go", "JavaScript", "TypeScript"],
+  },
+  {
+    category: "backend",
+    label: "Backend",
+    items: ["Django", "Flask", "FastAPI", "REST API", "Node.js", "Express.js"],
+  },
+  { category: "database", label: "Database", items: ["MongoDB", "MySQL", "PostgreSQL", "Redis"] },
+  {
+    category: "tools",
+    label: "Tools",
+    items: ["AWS", "Docker", "Git", "Kubernetes", "Jenkins", "Nginx", "Kafka"],
+  },
 ];
 
 export interface ProjectMetric {
@@ -196,7 +206,8 @@ export interface Repo {
   language: string;
 }
 
-export const repos: Repo[] = [
+// Used only if the live GitHub fetch in lib/github.ts fails (offline, rate-limited, etc).
+export const fallbackRepos: Repo[] = [
   {
     name: "Modern_Portfolio",
     description:
@@ -256,11 +267,10 @@ export const contributionWeeks: number[][] = Array.from({ length: 52 }, () =>
 
 export const terminalContent = {
   skills: [
-    "Languages      Python, JavaScript, TypeScript",
-    "Backend        Django REST Framework, Node.js, Express",
-    "Data           PostgreSQL, Redis",
-    "Infra          Docker, Kubernetes, CI/CD Pipelines",
-    "Cloud          AWS",
+    "Languages      Python, Go, JavaScript, TypeScript",
+    "Backend        Django, Flask, FastAPI, REST API, Node.js, Express.js",
+    "Database       MongoDB, MySQL, PostgreSQL, Redis",
+    "Tools          AWS, Docker, Git, Kubernetes, Jenkins, Nginx, Kafka",
     "Interests      Web3, Blockchain, Crypto",
   ],
   experience: [

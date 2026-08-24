@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { gitCommits, repos, contributionWeeks } from "@/content/profile";
+import { gitCommits, contributionWeeks, type Repo } from "@/content/profile";
 
 const COMMIT_SPACING = 72;
 const COMMIT_START_X = 40;
@@ -44,7 +44,11 @@ const intensityClass: Record<number, string> = {
   4: "bg-accent",
 };
 
-export function OpenSource() {
+interface OpenSourceProps {
+  repos: Repo[];
+}
+
+export function OpenSource({ repos }: OpenSourceProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const mainPathRef = useRef<SVGPathElement>(null);
   const featurePathRef = useRef<SVGPathElement>(null);

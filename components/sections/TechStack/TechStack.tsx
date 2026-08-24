@@ -9,14 +9,12 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { profile, techStack, techCategoryColor } from "@/content/profile";
 
 const DOT_OFF = "#26272e";
-const STATUS_OFF = "#55575f";
 
 export function TechStack() {
   const sectionRef = useRef<HTMLElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<Array<HTMLDivElement | null>>([]);
   const dotRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const statusRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const promptRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
 
@@ -24,7 +22,6 @@ export function TechStack() {
     () => {
       const rows = rowRefs.current.filter(Boolean) as HTMLDivElement[];
       const dots = dotRefs.current.filter(Boolean) as HTMLDivElement[];
-      const statuses = statusRefs.current.filter(Boolean) as HTMLSpanElement[];
       if (rows.length === 0) return;
 
       if (reducedMotion) {
@@ -34,9 +31,6 @@ export function TechStack() {
         techStack.forEach((group, i) => {
           const color = techCategoryColor[group.category];
           gsap.set(dots[i], { scale: 1, backgroundColor: color });
-          gsap.set(statuses[i], { color });
-          const el = statusRefs.current[i];
-          if (el) el.textContent = "[ OK ]";
         });
         return;
       }
@@ -44,7 +38,6 @@ export function TechStack() {
       gsap.set(railRef.current, { scaleY: 0, transformOrigin: "top center" });
       gsap.set(rows, { opacity: 0.32 });
       gsap.set(dots, { scale: 0.55, backgroundColor: DOT_OFF });
-      gsap.set(statuses, { color: STATUS_OFF });
       gsap.set(promptRef.current, { autoAlpha: 0, y: 12 });
 
       const tl = gsap.timeline({
@@ -59,15 +52,6 @@ export function TechStack() {
 
         tl.to(dots[i], { scale: 1, duration: 0.3, ease: "back.out(2.5)" }, position)
           .set(dots[i], { backgroundColor: color }, "<")
-          .set(statuses[i], { color }, "<")
-          .call(
-            () => {
-              const el = statusRefs.current[i];
-              if (el) el.textContent = "[ OK ]";
-            },
-            [],
-            "<",
-          )
           .to(rows[i], { opacity: 1, duration: 0.4, ease: "power2.out" }, "<");
       });
 
@@ -109,15 +93,6 @@ export function TechStack() {
                   }}
                   className="flex flex-1 flex-wrap items-baseline gap-x-4 gap-y-2 pt-1.5 sm:pt-2"
                 >
-                  <span
-                    ref={(el) => {
-                      statusRefs.current[i] = el;
-                    }}
-                    className="w-14 shrink-0 font-mono text-[11px] tracking-[0.2em] uppercase"
-                  >
-                    [ .. ]
-                  </span>
-
                   <span className="text-paper w-24 shrink-0 font-mono text-xs tracking-[0.25em] uppercase">
                     {group.label}
                   </span>
@@ -126,7 +101,7 @@ export function TechStack() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="border-ink-600 text-ink-200 rounded-full border px-3 py-1 font-mono text-[10px] tracking-wide uppercase"
+                        className="border-ink-400 text-paper rounded-full border px-3 py-1 font-mono text-[10px] tracking-wide uppercase"
                       >
                         {item}
                       </span>

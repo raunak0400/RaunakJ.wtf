@@ -29,7 +29,7 @@ export function Footer() {
           <div>
             <p className="font-display text-2xl font-semibold text-paper">{profile.name}</p>
             <p className="mt-2 font-mono text-xs tracking-[0.2em] text-ink-300 uppercase">
-              {profile.role} — {profile.focus}
+              {profile.tagline}
             </p>
             <p className="mt-1 font-mono text-[11px] tracking-[0.2em] text-ink-400 uppercase">
               {profile.location}
