@@ -14,7 +14,9 @@ GSAP timelines, Framer Motion, and Lenis smooth scrolling.
 [![GSAP](https://img.shields.io/badge/GSAP-3-88CE02?logo=greensock&logoColor=white)](https://gsap.com)
 [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red)](./LICENSE)
 
-[Live Site](https://raunakj.wtf) · [Report a Bug](https://github.com/raunak0400/RaunakJ.wtf/issues) · [Contact](mailto:raunakkumarjha233@gmail.com)
+**🌐 Live:** [raunakj.wtf](https://raunakj.wtf) &nbsp;·&nbsp; **Alt build:** [portfolio.raunakj.wtf](https://portfolio.raunakj.wtf)
+
+[Report a Bug](https://github.com/raunak0400/RaunakJ.wtf/issues) · [Contact](mailto:raunakkumarjha233@gmail.com)
 
 </div>
 
@@ -78,8 +80,9 @@ new_portfolio/
 └── eslint.config.mjs
 ```
 
-> `old-portfolio/` and `imraunak-dev/` contain previous portfolio iterations, merged in with their
-> history preserved for reference.
+> **`imraunak-dev/`** is a standalone HTML/CSS/JS portfolio build, deployed live at
+> **[portfolio.raunakj.wtf](https://portfolio.raunakj.wtf)**. **`old-portfolio/`** is an earlier
+> Vite/React iteration. Both are merged in with their git history preserved for reference.
 
 ## Getting Started
 
@@ -127,7 +130,14 @@ objects there — no component changes required:
 
 ## Deployment
 
-The site is optimized for [Vercel](https://vercel.com). Push to your connected repository and Vercel
+### Live environments
+
+| URL | Source | Description |
+| --- | ------ | ----------- |
+| **[raunakj.wtf](https://raunakj.wtf)** | root (`app/`) | Primary portfolio — this Next.js 16 site |
+| **[portfolio.raunakj.wtf](https://portfolio.raunakj.wtf)** | [`imraunak-dev/`](./imraunak-dev) | Standalone HTML/CSS/JS portfolio build |
+
+The primary site is optimized for [Vercel](https://vercel.com). Push to your connected repository and Vercel
 builds and deploys automatically. You can also run a production build anywhere Node is available:
 
 ```bash
