@@ -209,7 +209,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Email**: [contact@imraunak.dev](mailto:contact@imraunak.dev)
 - **LinkedIn**: [Raunak Kumar Jha](https://www.linkedin.com/in/raunak0400)
 - **GitHub**: [@raunak0400](https://github.com/raunak0400)
-- **Instagram**: [@raunak.1812](https://www.instagram.com/raunak.1812)
+- **Instagram**: [@raunakj.wtf](https://www.instagram.com/raunakj.wtf)
 - **Twitter**: [@raunak0400](https://twitter.com/raunak0400)
 - **LeetCode**: [@raunak0400](https://leetcode.com/raunak0400)
 

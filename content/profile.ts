@@ -23,7 +23,7 @@ export const profile = {
     linkedin: "https://linkedin.com/in/raunak0400",
     twitter: "https://twitter.com/raunak0400",
     leetcode: "https://leetcode.com/u/raunak0400/",
-    instagram: "https://instagram.com/raunak.1812",
+    instagram: "https://instagram.com/raunakj.wtf",
   },
 };
 
