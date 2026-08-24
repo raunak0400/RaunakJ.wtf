@@ -47,12 +47,27 @@ next-env.d.ts
 # Added by code-review-graph
 .code-review-graph/
 
-# single-tool setup — only Claude Code (CLAUDE.md, .mcp.json) is used here;
-# ignore other AI-tool config files so they don't get re-tracked
+# AI-assistant / agent tooling — local dev config, not for the public repo
+CLAUDE.md
+.claude/
+.mcp.json
+.opencode.json
+.opencode/
+.cursor/
 .cursorrules
+.windsurf/
 .windsurfrules
 AGENTS.md
 GEMINI.md
 QODER.md
 .qoder/
+.aider*
+.roo/
+.continue/
 .vscode/mcp.json
+.github/code-review-graph.instruction.md
+
+# editor / OS local files
+.vscode/
+*.local
+scratchpad/
